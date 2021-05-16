@@ -2,8 +2,11 @@ import { FunctionComponent, useState, useCallback } from 'react'
 import { akita } from '../ethereum/akita'
 import { useInterval } from '../ethereum/interval'
 import { chainIdToText } from '../ethereum/const'
+const CoinGecko = require('coingecko-api')
 
 let window_: any = window
+
+const CoinGeckoClient = new CoinGecko()
 
 function isConnected() {
   return window_.ethereum.isConnected()
@@ -16,9 +19,18 @@ function hasWallet() {
 export const Header: FunctionComponent = () => {
   const [accounts, setAccounts] = useState([])
   const [chainId, setChainId] = useState(undefined)
-  const [akitaBalance, setAkitaBalance] = useState(undefined)
+  const [akitaBalance, setAkitaBalance] = useState(-1)
+  const [akitaPrice, setAkitaPrice] = useState(-1)
+  const [akitaValue, setAkitaValue] = useState(-1)
   const [loggedIn, setLoggedIn] = useState(false)
   const [loggingInOut, setLoggingInOut] = useState(false)
+
+  const getAkitaData = async () => {
+    let akitaData = await CoinGeckoClient.coins.fetch('akita-inu', {})
+    if (akitaData.data) {
+      setAkitaPrice(akitaData.data.market_data.current_price.usd)
+    }
+  }
 
   const getAccounts = useCallback(async () => {
     const accounts_ = await window_.ethereum.request({ method: 'eth_accounts' })
@@ -35,7 +47,7 @@ export const Header: FunctionComponent = () => {
   const getChainId = useCallback(async () => {
     var chainId_ = await window_.ethereum.request({ method: 'eth_chainId' })
 
-    if (typeof chainId_ !== undefined) {
+    if (chainId_) {
       // Remove the '0x' at the start of the string
       chainId_ = chainId_.replace(/^0x/, '')
     }
@@ -44,7 +56,7 @@ export const Header: FunctionComponent = () => {
   }, [])
 
   const getAkitaBalance = useCallback(async () => {
-    if (typeof accounts !== undefined && accounts.length !== 0) {
+    if (accounts && accounts.length !== 0) {
       try {
         const akitaBalance_ = await akita(chainId).methods.balanceOf(accounts[0]).call()
         setAkitaBalance(akitaBalance_)
@@ -55,6 +67,11 @@ export const Header: FunctionComponent = () => {
       }
     }
   }, [accounts, chainId])
+
+  const getAkitaValue = useCallback(() => {
+    if (akitaBalance !== -1 && akitaPrice !== -1) setAkitaValue(akitaBalance * akitaPrice)
+    else return -1
+  }, [akitaBalance, akitaPrice])
 
   async function connectWallet() {
     if (!loggingInOut) {
@@ -71,7 +88,7 @@ export const Header: FunctionComponent = () => {
   const startUpChecks = async () => {
     if (hasWallet()) {
       const accounts_ = await window_.ethereum.request({ method: 'eth_accounts' })
-      if (typeof accounts_ !== undefined && accounts_.length !== 0) {
+      if (accounts_ && accounts_.length !== 0) {
         setAccounts(accounts_)
         setLoggedIn(true)
       }
@@ -81,17 +98,19 @@ export const Header: FunctionComponent = () => {
   const updateCallbacks = useCallback(async () => {
     if (hasWallet()) {
       // Check if the user logged out
-      if (!isConnected() || typeof accounts === undefined || accounts.length === 0) {
+      if (!isConnected() || !accounts || accounts.length === 0) {
         setLoggedIn(false)
       } else if (isConnected() && loggedIn) {
         getAccounts()
         getChainId()
         getAkitaBalance()
+        getAkitaValue()
       }
     }
-  }, [getAccounts, getChainId, getAkitaBalance, loggedIn, accounts])
+  }, [getAccounts, getChainId, getAkitaBalance, getAkitaValue, loggedIn, accounts])
 
   startUpChecks()
+  getAkitaData()
   // TODO: Is 500 a good number for this?
   useInterval(updateCallbacks, 500)
 
@@ -111,7 +130,7 @@ export const Header: FunctionComponent = () => {
 
     const buttonText = () => {
       if (!loggedIn) return 'Connect to a wallet'
-      else if (typeof accounts !== undefined && accounts.length !== 0) return accounts[0]
+      else if (accounts && accounts.length !== 0) return accounts[0]
       else return 'Loading...'
     }
 
@@ -127,7 +146,7 @@ export const Header: FunctionComponent = () => {
   }
 
   const chainIdDisplay = () => {
-    if (!loggedIn || typeof chainId === undefined) {
+    if (!loggedIn || !chainId) {
       return <div></div>
     }
     return (
@@ -143,14 +162,13 @@ export const Header: FunctionComponent = () => {
   }
 
   const akitaBalanceDisplay = () => {
-    if (!loggedIn || typeof akitaBalance === undefined) {
+    if (!loggedIn || !akitaBalance) {
       return <div>Log in with your wallet to see your AKITA balance here!</div>
     } else {
       return (
         <div>
           Your AKITA balance: {akitaBalance}
-          Current AKITA price: {1234}
-          Current value: {5678}$
+          Current AKITA price: {akitaPrice}$ Current value: {akitaValue}$
         </div>
       )
     }
@@ -170,9 +188,7 @@ export const Header: FunctionComponent = () => {
           {chainIdDisplay()}
         </div>
       </header>
-      <div>
-        {akitaBalanceDisplay()}
-      </div>
+      <div>{akitaBalanceDisplay()}</div>
     </div>
   )
 }

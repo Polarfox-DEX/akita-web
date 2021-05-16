@@ -196,7 +196,7 @@ export const Header: FunctionComponent = () => {
 
           {akitaCard(akitaBalance, ' AKITA', 'AKITA Balance')}
           {akitaCard(akitaPrice, '$', 'AKITA Price')}
-          {akitaCard(akitaValue, '$', 'AKITA Value')}
+          {akitaCard(akitaValue, '$', 'Wallet Value')}
         </div>
       )
     }

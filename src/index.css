@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,139 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/*Readon Button*/
+.readon {
+  color: #666666;
+  font-size: 15px;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.7s ease 0s !important;
+  outline: none;
+  padding: 18px 30px 16px;
+  text-transform: uppercase;
+  line-height: 1;
+  z-index: 99;
+  font-weight: 500;
+  background: #ffbf66;
+  border-radius: 30px;
+  position: relative;
+  border: 2px solid transparent;
+}
+.readon:hover {
+  background: transparent;
+  border-color: #ffbf66;
+  color: #666666;
+}
+.readon.white-btn {
+  color: #ffbf66;
+  background: #ffffff;
+  border: 2px solid transparent;
+}
+.readon.white-btn:before {
+  background: #d2cdcd;
+}
+.readon.banner {
+  color: #101010;
+  border-radius: 5px;
+  padding: 20px 95px 18px 35px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border: unset;
+  overflow: hidden;
+}
+.readon.banner:before {
+  font-family: Flaticon;
+  content: '\f15a';
+  font-size: 18px;
+  font-weight: 600;
+  left: auto;
+  right: 25px;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.readon.banner:after {
+  content: '';
+  position: absolute;
+  width: 28%;
+  height: 200%;
+  transition: all 0.5s ease 0s;
+  background: #f4b762;
+  z-index: 1;
+  right: 0;
+  top: 0;
+  -webkit-transform-origin: 0 0;
+  -webkit-transform: rotate(-20deg);
+  -moz-transform-origin: 0 0;
+  -moz-transform: rotate(-20deg);
+  -ms-transform-origin: 0 0;
+  -ms-transform: rotate(-20deg);
+  transform-origin: 0 0;
+  transform: rotate(-20deg);
+}
+.readon.banner:hover {
+  background: #f2ac4a;
+}
+.readon.banner:hover:after {
+  width: 30%;
+}
+
+/* .readon.bannerv2 {
+  background: #1DA1F2;
+}
+*/
+.readon.bannerv2:before {
+  content: '\f147';
+}
+/*
+.readon.bannerv2:after {
+  background: #E1E8ED;
+}
+*/
+.readon.banner:focus {
+  outline: none;
+}
+.readon.junior-btn {
+  font-weight: 500;
+  border-radius: 3px;
+  padding: 13px 37px;
+}
+.readon.junior-btn.solid:before {
+  background: transparent;
+}
+.readon.junior-btn:before {
+  border-radius: 3px;
+}
+.readon.junior-btn:after {
+  border-radius: 3px;
+}
+.rs-gradient-btn {
+  background-image: linear-gradient(
+    to right,
+    #ffbf66 0%,
+    #05d4ef 50%,
+    #101010 100%
+  );
+  padding: 14px 40px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  border-radius: 5px;
+  display: inline-block;
+  transition: 0.5s;
+  background-size: 200% auto;
+  background-position: center;
+}
+.rs-gradient-btn:hover {
+  color: #ffffff;
+  background-position: right center;
+}
+.rs-view-btn a {
+  color: #666666;
+}
+.rs-view-btn a:hover {
+  color: #ffbf66;
 }

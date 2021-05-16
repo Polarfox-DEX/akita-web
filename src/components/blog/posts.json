@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Decentralized Exchange on Avalanche",
+    "description": "For AKITA holders only",
+    "imgUrl": "images/blog/b8.jpg",
+    "link": "https://www.polarfox.io"
+  },
+  {
+    "title": "We're now listed on Hotbit",
+    "description": "Trade now",
+    "imgUrl": "images/blog/b5.jpg",
+    "link": "https://www.hotbit.io/exchange?symbol=AKITA_USDT"
+  },
+  {
+    "title": "We're now listed on Poloniex",
+    "description": "Trade now",
+    "imgUrl": "images/blog/b6.jpg",
+    "link": "https://poloniex.com/exchange/USDT_AKITA"
+  },
+  {
+    "title": "Find us on Coingecko and Coinmarketcap",
+    "imgUrl": "images/blog/b7.jpg",
+    "link": "https://coinmarketcap.com/currencies/akita-inu/"
+  },
+  {
+    "title": "AKITA INU 秋田犬 community will be able to bridge to Avalanche",
+    "imgUrl": "images/blog/b1.jpg",
+    "link": "https://www.avax.network"
+  },
+  {
+    "title": "50% of the supply was sent to Vitalik Buterin's wallet",
+    "imgUrl": "images/blog/b4.jpg",
+    "link": "https://etherscan.io/address/0xab5801a7d398351b8be11c439e05c5b3259aec9b"
+  }
+]

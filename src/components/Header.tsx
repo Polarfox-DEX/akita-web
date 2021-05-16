@@ -25,10 +25,12 @@ export const Header: FunctionComponent = () => {
   const [loggedIn, setLoggedIn] = useState(false)
   const [loggingInOut, setLoggingInOut] = useState(false)
 
-  const getAkitaData = async () => {
-    let akitaData = await CoinGeckoClient.coins.fetch('akita-inu', {})
-    if (akitaData.data) {
-      setAkitaPrice(akitaData.data.market_data.current_price.usd)
+  const getAkitaPrice = async () => {
+    if (akitaPrice === -1) {
+      let akitaData = await CoinGeckoClient.coins.fetch('akita-inu', {})
+      if (akitaData.data) {
+        setAkitaPrice(akitaData.data.market_data.current_price.usd)
+      }
     }
   }
 
@@ -110,7 +112,7 @@ export const Header: FunctionComponent = () => {
   }, [getAccounts, getChainId, getAkitaBalance, getAkitaValue, loggedIn, accounts])
 
   startUpChecks()
-  getAkitaData()
+  getAkitaPrice()
   // TODO: Is 500 a good number for this?
   useInterval(updateCallbacks, 500)
 
@@ -161,14 +163,40 @@ export const Header: FunctionComponent = () => {
     )
   }
 
+  const akitaCard = (balance: number, currency: string, description: string) => {
+    return (
+      <div className="p-4 md:w-1/3">
+        <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+          <div className="p-6">
+            <div className="grid grid-cols-1 divide-y divide-gray-600">
+              <div>
+                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                  {balance === -1 ? '...' : balance + currency}
+                </h1>
+              </div>
+              <div>
+                <p className="leading-relaxed mb-3">{description}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   const akitaBalanceDisplay = () => {
     if (!loggedIn || !akitaBalance) {
       return <div>Log in with your wallet to see your AKITA balance here!</div>
     } else {
       return (
-        <div>
-          Your AKITA balance: {akitaBalance}
-          Current AKITA price: {akitaPrice}$ Current value: {akitaValue}$
+        <div className="flex space-x-4 ...">
+          {/* <div className="flex-1 bg-orange-600 bg-opacity-50 ...">Your AKITA balance: {akitaBalance}</div>
+          <div className="flex-1 bg-orange-600 bg-opacity-75 ...">Current AKITA price: {akitaPrice}$</div>
+          <div className="flex-1 bg-orange-600 bg-opacity-100 ...">Current value: {akitaValue}$</div> */}
+
+          {akitaCard(akitaBalance, ' AKITA', 'AKITA Balance')}
+          {akitaCard(akitaPrice, '$', 'AKITA Price')}
+          {akitaCard(akitaValue, '$', 'AKITA Value')}
         </div>
       )
     }
@@ -188,7 +216,7 @@ export const Header: FunctionComponent = () => {
           {chainIdDisplay()}
         </div>
       </header>
-      <div>{akitaBalanceDisplay()}</div>
+      <header className="text-gray-600 body-font">{akitaBalanceDisplay()}</header>
     </div>
   )
 }

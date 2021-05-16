@@ -8,7 +8,7 @@ export const Home: FunctionComponent = () => (
           <h1>AKITA NETWORK 秋田犬</h1>
           <h2>social media meets DeFi</h2>
           <p>
-            AKITA INU started as a meme. Now we'll brigde to AVAX for project
+            AKITA INU started as a meme. Now we'll bridge to AVAX for project
             governance - empowering our community.
           </p>
 

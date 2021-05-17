@@ -1,10 +1,10 @@
-import { FunctionComponent } from 'react';
-import classnames from 'classnames';
-import { Post } from './Post';
-import posts from './posts.json';
+import { FunctionComponent } from 'react'
+import classnames from 'classnames'
+import { Post } from './Post'
+import posts from './posts.json'
 
 export interface BlogProps {
-  className?: string;
+  className?: string
 }
 
 export const Blog: FunctionComponent<BlogProps> = ({ className }) => (
@@ -13,8 +13,8 @@ export const Blog: FunctionComponent<BlogProps> = ({ className }) => (
     <p>AKITA INU 秋田犬 最新情報.</p>
     <div className="flex flex-wrap pt-12">
       {posts.map((post) => (
-        <Post {...post}></Post>
+        <Post key={post.title} {...post}></Post>
       ))}
     </div>
   </section>
-);
+)

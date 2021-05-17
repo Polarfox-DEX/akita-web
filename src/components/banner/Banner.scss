@@ -1,0 +1,22 @@
+#spinner {
+  position: relative;
+}
+
+#spinner:after {
+  content: '';
+  position: absolute;
+  width: 89%;
+  height: 89%;
+  background: url('./round-border-shape.png') no-repeat center center;
+  background-size: contain;
+  animation: spine 50s infinite linear;
+}
+
+@keyframes spine {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

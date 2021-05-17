@@ -2,6 +2,8 @@ import { FunctionComponent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTelegramPlane, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
+import './Banner.scss';
+
 export const Banner: FunctionComponent = () => (
   <section className="overflow-hidden text-left">
     <div className="container px-28 mx-auto">
@@ -39,13 +41,27 @@ export const Banner: FunctionComponent = () => (
             </a>
           </div>
         </div>
-
-        <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 flex justify-center items-center">
-          <img
-            src="images/banner/akita.png"
-            alt="akita logo"
-            className="h-96 w-96"
-          />
+        <div
+          id="spinner"
+          className="lg:w-1/2 w-full lg:py-6 mt-6 lg:mt-0 flex justify-center items-center"
+        >
+          <div
+            className="flex justify-center items-center"
+            style={{
+              backgroundColor: 'red',
+              background:
+                'url(images/banner/shape/shape-circle-bg.png) no-repeat center center',
+              backgroundSize: '30rem',
+              height: '35rem',
+              width: '100%',
+            }}
+          >
+            <img
+              src="images/banner/akita.png"
+              alt="akita logo"
+              className="h-96 w-96"
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { Footer } from './components/Footer';
 import { Blog } from './components/blog/Blog';
 import { HowToBuy } from './components/HowToBuy';
 import { Header } from './components/Header';
-import { Banner } from './components/Banner';
+import { Banner } from './components/banner/Banner';
 import { FirstTime } from './components/first-time/FirstTime';
 
 function App() {

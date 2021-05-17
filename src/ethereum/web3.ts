@@ -1,5 +1,5 @@
 import Web3 from 'web3'
-import { provider, ETHEREUM } from './const'
+import { PROVIDER, ChainId } from './const'
 
 let web3_: Web3
 
@@ -11,7 +11,7 @@ if (window && (window as any).ethereum) {
 
 // Running in server OR no Metamask
 else {
-  const newProvider = new Web3.providers.HttpProvider(provider(ETHEREUM))
+  const newProvider = new Web3.providers.HttpProvider(PROVIDER[ChainId.ETHEREUM])
   web3_ = new Web3(newProvider)
 }
 

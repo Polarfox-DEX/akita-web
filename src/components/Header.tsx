@@ -1,7 +1,7 @@
-import { FunctionComponent, useState, useCallback } from 'react'
+import { FunctionComponent, useState, useEffect } from 'react'
 import { akita } from '../ethereum/akita'
-import { useInterval } from '../ethereum/interval'
-import { chainIdToText } from '../ethereum/const'
+import { useInterval } from '../hooks/useInterval'
+import { ChainId, CHAIN_NAME } from '../ethereum/const'
 import { toCompactBalance, toCompactValue } from '../ethereum/formatter'
 const CoinGecko = require('coingecko-api')
 
@@ -17,152 +17,109 @@ function hasWallet() {
   return window_.web3 || window_.ethereum
 }
 
-export const Header: FunctionComponent = () => {
-  const [accounts, setAccounts] = useState([])
-  const [chainId, setChainId] = useState(undefined)
-  const [akitaBalance, setAkitaBalance] = useState(-1)
-  const [akitaPrice, setAkitaPrice] = useState(-1)
-  const [akitaValue, setAkitaValue] = useState(-1)
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [loggingInOut, setLoggingInOut] = useState(false)
+async function getAkitaPrice(): Promise<number | null> {
+  const akitaData = await CoinGeckoClient.coins.fetch('akita-inu', {})
 
-  const getAkitaPrice = async () => {
-    if (akitaPrice === -1) {
-      let akitaData = await CoinGeckoClient.coins.fetch('akita-inu', {})
-      if (akitaData.data) {
-        setAkitaPrice(akitaData.data.market_data.current_price.usd)
-      }
-    }
+  return akitaData?.data.market_data?.current_price?.usd
+}
+
+function getAccounts(): Promise<string[]> {
+  return window_.ethereum.request({ method: 'eth_accounts' })
+}
+
+function requestAccounts(): Promise<string[]> {
+  return window_.ethereum.request({ method: 'eth_requestAccounts' })
+}
+
+async function getChainId(): Promise<number | null> {
+  const chainId_ = await window_.ethereum.request({ method: 'eth_chainId' })
+
+  if (chainId_) {
+    // Hew to base 10
+    return parseInt(chainId_)
   }
 
-  const getAccounts = useCallback(async () => {
-    const accounts_ = await window_.ethereum.request({ method: 'eth_accounts' })
+  return null
+}
 
-    setAccounts(accounts_)
+export const Header: FunctionComponent = () => {
+  const [accounts, setAccounts] = useState<string[]>([])
+  const [chainId, setChainId] = useState<ChainId | null>(null)
+  const [akitaBalance, setAkitaBalance] = useState<number | null>(null)
+  const [akitaPrice, setAkitaPrice] = useState<number | null>(null)
+  const [akitaValue, setAkitaValue] = useState<number | null>(null)
+  const [loggedIn, setLoggedIn] = useState(false)
+
+  useEffect(() => {
+    ;(async () => {
+      const price = await getAkitaPrice()
+      setAkitaPrice(price)
+    })()
   }, [])
 
-  const requestAccounts = useCallback(async () => {
-    const accounts_ = await window_.ethereum.request({ method: 'eth_requestAccounts' })
-
-    setAccounts(accounts_)
+  useEffect(() => {
+    ;(async () => {
+      if (hasWallet()) {
+        const accounts_ = await window_.ethereum.request({ method: 'eth_accounts' })
+        if (accounts_ && accounts_.length !== 0) {
+          setAccounts(accounts_)
+          setLoggedIn(true)
+        }
+      }
+    })()
   }, [])
 
-  const getChainId = useCallback(async () => {
-    var chainId_ = await window_.ethereum.request({ method: 'eth_chainId' })
-
-    if (chainId_) {
-      // Remove the '0x' at the start of the string
-      chainId_ = chainId_.replace(/^0x/, '')
-    }
-
-    setChainId(chainId_)
-  }, [])
-
-  const getAkitaBalance = useCallback(async () => {
-    if (accounts && accounts.length !== 0) {
+  const getAkitaBalance = async (): Promise<number | null> => {
+    if (accounts && accounts.length !== 0 && chainId) {
       try {
-        const akitaBalance_ = await akita(chainId).methods.balanceOf(accounts[0]).call()
-        setAkitaBalance(akitaBalance_)
+        return await akita(chainId).methods.balanceOf(accounts[0]).call()
       } catch (error) {
         // This error is irrelevant and has no consequence on the behavior of the app
         if (!error.toString().startsWith("Error: Returned values aren't valid, did it run Out of Gas?"))
           console.error(error)
       }
     }
-  }, [accounts, chainId])
 
-  const getAkitaValue = useCallback(() => {
-    if (akitaBalance !== -1 && akitaPrice !== -1) setAkitaValue(akitaBalance * akitaPrice)
-    else return -1
-  }, [akitaBalance, akitaPrice])
+    return null
+  }
+
+  const getAkitaValue = () => {
+    if (akitaBalance && akitaPrice) return akitaBalance * akitaPrice
+    else return 0
+  }
 
   async function connectWallet() {
-    if (!loggingInOut) {
-      setLoggingInOut(true)
-
-      await requestAccounts()
-      await getChainId()
+    if (!loggedIn) {
+      const [accounts, chainId] = await Promise.all([requestAccounts(), getChainId()])
+      if (accounts) setAccounts(accounts)
+      if (chainId) setChainId(chainId)
 
       setLoggedIn(true)
-      setLoggingInOut(false)
     }
   }
 
-  const startUpChecks = async () => {
-    if (hasWallet()) {
-      const accounts_ = await window_.ethereum.request({ method: 'eth_accounts' })
-      if (accounts_ && accounts_.length !== 0) {
-        setAccounts(accounts_)
-        setLoggedIn(true)
+  useInterval(
+    async () => {
+      if (hasWallet()) {
+        // Check if the user logged out
+        if (!isConnected() || !accounts || accounts.length === 0) {
+          setLoggedIn(false)
+        } else if (isConnected() && loggedIn) {
+          const accounts = await getAccounts()
+          if (accounts) setAccounts(accounts)
+
+          setChainId(await getChainId())
+
+          const akitaBalance = await getAkitaBalance()
+          if (akitaBalance) setAkitaBalance(akitaBalance)
+
+          setAkitaValue(getAkitaValue())
+        }
       }
-    }
-  }
-
-  const updateCallbacks = useCallback(async () => {
-    if (hasWallet()) {
-      // Check if the user logged out
-      if (!isConnected() || !accounts || accounts.length === 0) {
-        setLoggedIn(false)
-      } else if (isConnected() && loggedIn) {
-        getAccounts()
-        getChainId()
-        getAkitaBalance()
-        getAkitaValue()
-      }
-    }
-  }, [getAccounts, getChainId, getAkitaBalance, getAkitaValue, loggedIn, accounts])
-
-  startUpChecks()
-  getAkitaPrice()
-  // TODO: Is 500 a good number for this?
-  useInterval(updateCallbacks, 500)
-
-  const walletSection = () => {
-    if (!hasWallet()) {
-      return (
-        <button
-          // TODO: Redirect the user to Metamask.io
-          onClick={() => console.log('TODO: redirect the user to Metamask.io')}
-          disabled
-          className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
-        >
-          Install Metamask
-        </button>
-      )
-    }
-
-    const buttonText = () => {
-      if (!loggedIn) return 'Connect to a wallet'
-      else if (accounts && accounts.length !== 0) return accounts[0]
-      else return 'Loading...'
-    }
-
-    return (
-      <button
-        onClick={() => connectWallet()}
-        disabled={loggingInOut}
-        className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
-      >
-        {buttonText()}
-      </button>
-    )
-  }
-
-  const chainIdDisplay = () => {
-    if (!loggedIn || !chainId) {
-      return <div></div>
-    }
-    return (
-      <div>
-        <button
-          disabled
-          className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
-        >
-          {chainIdToText(chainId)}
-        </button>
-      </div>
-    )
-  }
+    },
+    2500,
+    true
+  )
 
   const akitaCard = (balance: string, currency: string, description: string) => {
     return (
@@ -186,38 +143,56 @@ export const Header: FunctionComponent = () => {
   }
 
   const akitaBalanceDisplay = () => {
-    if (!loggedIn || !akitaBalance) {
+    if (!loggedIn) {
       return <div>Log in with your wallet to see your AKITA balance here!</div>
     } else {
       return (
-        <div className="flex space-x-4 ...">
-          {/* <div className="flex-1 bg-orange-600 bg-opacity-50 ...">Your AKITA balance: {akitaBalance}</div>
-          <div className="flex-1 bg-orange-600 bg-opacity-75 ...">Current AKITA price: {akitaPrice}$</div>
-          <div className="flex-1 bg-orange-600 bg-opacity-100 ...">Current value: {akitaValue}$</div> */}
-
-          {akitaCard(toCompactBalance(akitaBalance), ' AKITA', 'AKITA Balance')}
-          {akitaCard(akitaPrice.toString(), '$', 'AKITA Price')}
-          {akitaCard(toCompactValue(akitaValue), ' $', 'Wallet Value')}
+        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          {akitaCard(toCompactBalance(akitaBalance ?? 0), ' AKITA', 'AKITA Balance')}
+          {akitaCard((akitaPrice ?? 0).toString(), '$', 'AKITA Price')}
+          {akitaCard(toCompactValue(akitaValue ?? 0), ' $', 'Wallet Value')}
         </div>
       )
     }
   }
 
   return (
-    <div>
-      <header className="text-gray-600 body-font">
-        <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-          <img src="images/logo.png" alt="logo" />
-          <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-            <a className="mr-5 uppercase hover:text-gray-900">Home</a>
-            <a className="mr-5 uppercase hover:text-gray-900">News</a>
-            <a className="mr-5 uppercase hover:text-gray-900">How To Buy</a>
-          </nav>
-          {walletSection()}
-          {chainIdDisplay()}
-        </div>
-      </header>
-      <header className="text-gray-600 body-font">{akitaBalanceDisplay()}</header>
+    <header className="text-gray-600 body-font">
+      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+        <img src="images/logo.png" alt="logo" />
+        <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
+          <a className="mr-5 uppercase hover:text-gray-900">Home</a>
+          <a className="mr-5 uppercase hover:text-gray-900">News</a>
+          <a className="mr-5 uppercase hover:text-gray-900">How To Buy</a>
+        </nav>
+        {loggedIn && chainId ? (
+          <WalletInfo address={accounts[0]} network={CHAIN_NAME[chainId]} />
+        ) : (
+          <ConnectButton hasWallet={hasWallet()} onClick={connectWallet} />
+        )}
+      </div>
+      {akitaBalanceDisplay()}
+    </header>
+  )
+}
+
+function ConnectButton({ hasWallet, onClick }: { hasWallet: boolean; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      disabled={!hasWallet}
+      className="inline-flex items-center bg-yellow-500 hover:bg-yellow-600 border-0 py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0"
+    >
+      {hasWallet ? 'Connect to a wallet' : 'Install Metamask'}
+    </button>
+  )
+}
+
+function WalletInfo({ address, network }: { address: string; network: string }) {
+  if (!address) return null
+  return (
+    <div className="text-yellow-500 border-yellow-500 border-2 rounded py-1 px-3 ">
+      {address} - {network}
     </div>
   )
 }

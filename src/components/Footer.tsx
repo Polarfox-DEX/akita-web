@@ -1,31 +1,20 @@
-import React, { FunctionComponent } from 'react';
-import styled from 'styled-components';
+import { FunctionComponent } from 'react';
+import classnames from 'classnames';
 
-const StyledFooter = styled.div`
-  padding-top: 90px;
-  /* background-color: #f9f9ff; */
-  background-color: black;
-  background: url(images/bg/footer-bg.jpg);
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-`;
+export interface FooterProps {
+  className?: string;
+}
 
-const CopyRightContainer = styled.div``;
-
-const PolarfoxLabsLink = styled.a`
-  color: #ffbf66;
-  transition: all 0.5s ease 0s;
-  text-decoration: none !important;
-  outline: none !important; ;
-`;
-
-export const Footer: FunctionComponent = () => (
-  <StyledFooter>
+export const Footer: FunctionComponent<FooterProps> = ({ className }) => (
+  <section
+    className={classnames('bg-blue-200 py-32', className)}
+    style={{ background: "url('images/footer/bg.jpg')" }}
+  >
     <p>
-      Built by&nbsp;
-      <PolarfoxLabsLink href="https://www.polarfox.io/" target="blank">
+      Built by{' '}
+      <a href="https://www.polarfox.io/" target="blank">
         Polarfox labs
-      </PolarfoxLabsLink>
+      </a>
     </p>
-  </StyledFooter>
+  </section>
 );

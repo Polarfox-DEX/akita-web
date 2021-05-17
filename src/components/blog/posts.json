@@ -25,11 +25,13 @@
   {
     "title": "AKITA INU 秋田犬 community will be able to bridge to Avalanche",
     "imgUrl": "images/blog/b1.jpg",
-    "link": "https://www.avax.network"
+    "link": "https://www.avax.network",
+    "description": "Community Count: +5000"
   },
   {
     "title": "50% of the supply was sent to Vitalik Buterin's wallet",
     "imgUrl": "images/blog/b4.jpg",
-    "link": "https://etherscan.io/address/0xab5801a7d398351b8be11c439e05c5b3259aec9b"
+    "link": "https://etherscan.io/address/0xab5801a7d398351b8be11c439e05c5b3259aec9b",
+    "description": "In Vitalik we trust."
   }
 ]

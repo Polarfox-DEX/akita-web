@@ -1,24 +1,20 @@
 import { FunctionComponent } from 'react';
-
+import classnames from 'classnames';
 import { Post } from './Post';
 import posts from './posts.json';
 
-export const Blog: FunctionComponent = () => (
-  <>
-    <div className="text-center mb-65">
-      <h1 className="text-gray-900 text-3xl title-font font-medium mb-5">
-        Latest News
-      </h1>
-      <p>AKITA INU 秋田犬 最新情報.</p>
+export interface BlogProps {
+  className?: string;
+}
+
+export const Blog: FunctionComponent<BlogProps> = ({ className }) => (
+  <section className={classnames('container px-5 mx-auto', className)}>
+    <h1 className="mb-4">Latest News</h1>
+    <p>AKITA INU 秋田犬 最新情報.</p>
+    <div className="flex flex-wrap pt-12">
+      {posts.map((post) => (
+        <Post {...post}></Post>
+      ))}
     </div>
-    <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
-        <div className="flex flex-wrap -m-4">
-          {posts.map((post) => (
-            <Post {...post}></Post>
-          ))}
-        </div>
-      </div>
-    </section>
-  </>
+  </section>
 );

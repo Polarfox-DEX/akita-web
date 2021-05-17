@@ -2,6 +2,7 @@ import { FunctionComponent, useState, useCallback } from 'react'
 import { akita } from '../ethereum/akita'
 import { useInterval } from '../ethereum/interval'
 import { chainIdToText } from '../ethereum/const'
+import { toCompactBalance, toCompactValue } from '../ethereum/formatter'
 const CoinGecko = require('coingecko-api')
 
 let window_: any = window
@@ -163,7 +164,7 @@ export const Header: FunctionComponent = () => {
     )
   }
 
-  const akitaCard = (balance: number, currency: string, description: string) => {
+  const akitaCard = (balance: string, currency: string, description: string) => {
     return (
       <div className="p-4 md:w-1/3">
         <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
@@ -171,7 +172,7 @@ export const Header: FunctionComponent = () => {
             <div className="grid grid-cols-1 divide-y divide-gray-600">
               <div>
                 <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                  {balance === -1 ? '...' : balance + currency}
+                  {balance === '-1' ? '...' : balance + currency}
                 </h1>
               </div>
               <div>
@@ -194,9 +195,9 @@ export const Header: FunctionComponent = () => {
           <div className="flex-1 bg-orange-600 bg-opacity-75 ...">Current AKITA price: {akitaPrice}$</div>
           <div className="flex-1 bg-orange-600 bg-opacity-100 ...">Current value: {akitaValue}$</div> */}
 
-          {akitaCard(akitaBalance, ' AKITA', 'AKITA Balance')}
-          {akitaCard(akitaPrice, '$', 'AKITA Price')}
-          {akitaCard(akitaValue, '$', 'Wallet Value')}
+          {akitaCard(toCompactBalance(akitaBalance), ' AKITA', 'AKITA Balance')}
+          {akitaCard(akitaPrice.toString(), '$', 'AKITA Price')}
+          {akitaCard(toCompactValue(akitaValue), ' $', 'Wallet Value')}
         </div>
       )
     }

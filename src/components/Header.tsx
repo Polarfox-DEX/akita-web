@@ -166,10 +166,10 @@ const Header: FunctionComponent = () => {
             Home
           </Link>
           <div className="mr-5 uppercase hover:text-gray-900">
-            <a href="#news">News</a>
+            <a href="/#news">News</a>
           </div>
           <div className="mr-5 uppercase hover:text-gray-900">
-            <a href="#how-to-buy">How To Buy</a>
+            <a href="/#how-to-buy">How To Buy</a>
           </div>
           <Link className="mr-5 uppercase hover:text-gray-900" to="/faq">
             FAQ

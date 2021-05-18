@@ -1,8 +1,9 @@
 import { FunctionComponent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTelegramPlane, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faTelegramPlane, faDiscord, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import './Banner.scss';
+import { akitaDiscordLink, akitaTelegramLink, akitaTwitterLink } from '../../utils/links';
 
 export const Banner: FunctionComponent = () => (
   <section className="overflow-hidden text-left">
@@ -12,14 +13,14 @@ export const Banner: FunctionComponent = () => (
           <h1>AKITA NETWORK 秋田犬</h1>
           <h2 className="pt-7">Social media meets DeFi</h2>
           <p className="pt-9">
-            AKITA INU started as a meme. Now we'll bridge to AVAX for project
+            AKITA INU started as a meme. Now we'll bridge to Avalanche for project
             governance - empowering our community.
           </p>
 
           <div className="pt-9">
             <a
               className="readon banner flex items-center pl-5 w-64 h-10"
-              href="https://t.me/akitatoken"
+              href={akitaTelegramLink}
               target="blank"
             >
               <div className="w-4/5">Join our Telegram</div>
@@ -31,7 +32,19 @@ export const Banner: FunctionComponent = () => (
           <div className="pt-5">
             <a
               className="readon banner flex items-center pl-5 w-64 h-10"
-              href="https://twitter.com/akita_network"
+              href={akitaDiscordLink}
+              target="blank"
+            >
+              <div className="w-4/5">Join our Discord</div>
+              <div className="w-1/5 text-center" style={{ zIndex: 3 }}>
+                <FontAwesomeIcon icon={faDiscord} />
+              </div>
+            </a>
+          </div>
+          <div className="pt-5">
+            <a
+              className="readon banner flex items-center pl-5 w-64 h-10"
+              href={akitaTwitterLink}
               target="blank"
             >
               <div className="w-4/5">Follow our Twitter</div>

@@ -13,8 +13,9 @@ export const Footer: FunctionComponent<FooterProps> = ({ className }) => (
     <p>
       Built by{' '}
       <a href="https://www.polarfox.io/" target="blank">
-        Polarfox labs
+        Polarfox Labs
       </a>
     </p>
+    <p>🦊</p>
   </section>
 );

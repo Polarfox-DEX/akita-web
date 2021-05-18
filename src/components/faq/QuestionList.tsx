@@ -10,9 +10,17 @@ import whatIsPfx from './questions/whatIsPfx'
 import whatIsPolarfoxLabs from './questions/whatIsPolarfoxLabs'
 import howDoesPolarfoxWork from './questions/howDoesPolarfoxWork'
 import whatIsDreamSwap from './questions/whatIsDreamSwap'
+import whatIsDream from './questions/whatIsDream'
 import whenLambo from './questions/whenLambo'
 import canIBuyAkitaBsc from './questions/canIBuyAkitaBsc'
 import tellMeMoreAkitaTeam from './questions/tellMeMoreAkitaTeam'
+import projectResources from './questions/projectResources'
+import areTokensMineable from './questions/areTokensMineable'
+import howToGetGAkita from './questions/howToGetGAkita'
+import howToGetPfx from './questions/howToGetPfx'
+import whatHappensToAkitaAfterPolarfox from './questions/whatHappensToAkitaAfterPolarfox'
+import akitaMarketCap from './questions/akitaMarketCap'
+import joinAkitaNetwork from './questions/joinAkitaNetwork'
 
 export interface QuestionListProps {
   className?: string
@@ -40,19 +48,16 @@ export const QuestionList: FunctionComponent<QuestionListProps> = ({ className }
     <Question question="Why Avalanche?" answer={whyAvalanche}></Question>
     <Question question="How does Polarfox work?" answer={howDoesPolarfoxWork}></Question>
     <Question question="What is Dreamswap?" answer={whatIsDreamSwap}></Question>
+    <Question question="What is Dream?" answer={whatIsDream}></Question>
     <Question question="Can I buy AKITA on the Binance Smart Chain?" answer={canIBuyAkitaBsc}></Question>
     <Question question="When lambo?" answer={whenLambo}></Question>
     <Question question="Tell me more about the AKITA team!" answer={tellMeMoreAkitaTeam}></Question>
-    {/* <Question question="Where does this project get its resources?" answer={}></Question> */}
-    {/* <Question question="What are the technologies at the heart of the project?" answer={}></Question> */}
-    {/* <Question question="Is AKITA / gAKITA / PFX mineable?" answer={}></Question> */}
-    {/* <Question question="How to get gAKITA? // How do I buy a big bag AKITAs?" answer={}></Question> */}
-    {/* <Question question="How to get PFX?" answer={}></Question> */}
-    {/* <Question question="What happens to AKITA after the Polarfox launch?" answer={}></Question> */}
-    {/* <Question question="What is the AKITA market cap?" answer={}></Question> */}
-    {/* <Question question="Where do I get latest furry news? " answer={}></Question> */}
-    {/* <Question question="As a fan, where may I join the AKITA Network? " answer={}></Question> */}
-    {/* <Question question="Any partnerships?" answer={}></Question> */}
-    {/* <Question question="What about future?" answer={}></Question> */}
+    <Question question="Where does this project get its resources?" answer={projectResources}></Question>
+    <Question question="Are AKITA, gAKITA and PFX mineable?" answer={areTokensMineable}></Question>
+    <Question question="How to get gAKITA?" answer={howToGetGAkita}></Question>
+    <Question question="How to get PFX?" answer={howToGetPfx}></Question>
+    <Question question="What happens to AKITA after the Polarfox launch?" answer={whatHappensToAkitaAfterPolarfox}></Question>
+    <Question question="What is the AKITA market cap?" answer={akitaMarketCap}></Question>
+    <Question question="As a fan, where may I join the AKITA Network? " answer={joinAkitaNetwork}></Question>
   </section>
 )

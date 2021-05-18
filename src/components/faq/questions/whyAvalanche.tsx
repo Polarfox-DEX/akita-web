@@ -5,7 +5,7 @@ const whyAvalanche = (
       near-instantaneous finality.
     </p>
 
-    <br></br>
+    <br />
     <p>To put it simply, Avalanche has:</p>
 
     <ul className="list-disc ml-1 list-inside">
@@ -15,7 +15,7 @@ const whyAvalanche = (
       <li>A dedicated community.</li>
     </ul>
 
-    <br></br>
+    <br />
     <p>We believe Avalanche is underrated, and will see major growth over the coming years.</p>
   </>
 )

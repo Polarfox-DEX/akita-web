@@ -12,19 +12,19 @@ const whatIsAkita = (
       .
     </p>
 
-    <br></br>
+    <br />
     <p>
       Originally a meme token without a team nor a project, acting as Doge's and Shiba Inu's smaller brother, it now has
       a strong community of 40,000+ holders, a dedicated team known as Polarfox, and many moderators to help federate
       the community.
     </p>
 
-    <br></br>
+    <br />
 
     <p>
       The goal of the team is to convert this coin from a meme token to a real, useful token with various use cases.
     </p>
-    <br></br>
+    <br />
     <p>Three projects involving AKITA are being worked on as of May 2021:</p>
     <ul className="list-disc ml-1 list-inside">
       <li>The DreamSwap exchange on Ethereum, which will allow you to stake your AKITA with other dog tokens;</li>
@@ -42,7 +42,7 @@ const whatIsAkita = (
       </li>
     </ul>
 
-    <br></br>
+    <br />
 
     <p>Good progress has been made on all three of those projects, and will release most probably in June or July.</p>
   </div>

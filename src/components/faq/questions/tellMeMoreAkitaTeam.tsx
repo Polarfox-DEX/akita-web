@@ -1,10 +1,10 @@
 const tellMeMoreAkitaTeam = (
   <>
     <p>The team working on AKITA network has grown over the past few months.</p>
-    <br></br>
+    <br />
     <p>Here are its members as of May 2021:</p>
 
-    <br></br>
+    <br />
 
     <p>Lead</p>
     <ul className="list-disc ml-1 list-inside">
@@ -12,7 +12,7 @@ const tellMeMoreAkitaTeam = (
       <li>Clem (Clément Aguilar) - Lead Developer</li>
     </ul>
 
-    <br></br>
+    <br />
 
     <p>Dev Team</p>
     <ul className="list-disc ml-1 list-inside">
@@ -20,13 +20,13 @@ const tellMeMoreAkitaTeam = (
       <li>Hans Dampf - Web Design</li>
       <li>Nicolas Hebrard - Solidity / React</li>
       <li>Anthony Dalin - Solidity / React</li>
-      <br></br>
+      <br />
       <p className="italic">Dreamswap</p>
       <li>Mehir Widekar - Solidity / React</li>
       <li>Chaitenya Gupta - Solidity / React</li>
     </ul>
 
-    <br></br>
+    <br />
 
     <p>Marketing team</p>
     <ul className="list-disc ml-1 list-inside">
@@ -37,7 +37,7 @@ const tellMeMoreAkitaTeam = (
       <li>Ryan MacGavin - Community</li>
     </ul>
 
-    <br></br>
+    <br />
     <p>And many others!</p>
   </>
 )

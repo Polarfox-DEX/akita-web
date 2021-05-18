@@ -1,7 +1,7 @@
 const whenLambo = (
   <>
     <p>Yes.</p>
-    <br></br>
+    <br />
     <p>Vroom vroom.</p>
   </>
 )

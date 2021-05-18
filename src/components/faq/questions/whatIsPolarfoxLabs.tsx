@@ -4,14 +4,14 @@ const whatIsPolarfoxLabs = (
       Polarfox Labs, first known as the Polarfox Project, was born out of a deep need: the AKITA token was lacking a
       team and a project.
     </p>
-    <br></br>
+    <br />
     <p>
       Various members from the community came together to build a project from scratch who eventually formed the
       Polarfox Labs team. Integrating Akita into a decentralized social network was a community decision. As developers
       began to understand the complexities of building a social network while working on Ethereum, a new idea was born:
       Polarfox.
     </p>
-    <br></br>
+    <br />
 
     <p>
       Polarfox Labs will build an ecosystem centered around a DEX to bolster the development of future projects in the

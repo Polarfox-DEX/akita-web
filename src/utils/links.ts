@@ -3,25 +3,39 @@ export const akitaTelegramLink = 'https://t.me/akitatoken'
 export const polarfoxTelegramLink = 'https://t.me/polarfoxdex'
 
 // Akita Telegram Europe
-export const akitaTelegramLocal = (country: string) => {
-    switch(country) {
-        // Europe
-        case 'FR': return 'https://t.me/AKITAFRENCHTEAM'
-        case 'ES': return 'https://t.me/AKITAINUtokenES'
-        case 'DE': return 'https://t.me/AKITAGER'
-        case 'RU': return 'https://t.me/AKITAtokenRus'
-        case 'CZ': return 'https://t.me/Czech_Slovak_Akita'
-        case 'NL': return 'https://t.me/AKITANederland'
-        // Asia
-        case 'JP': return 'https://t.me/akitanetworkjapan'
-        case 'VN': return 'https://t.me/joinchat/1LaoaTMtn2s4Nzc1'
-        case 'IR': return 'https://t.me/Akita_faa'
-        case 'TR': return 'https://t.me/trAKITAtrr'
-        case 'CN': return 'https://t.me/AKITA_Chinese'
-        case 'IN': return 'https://t.me/AKITAIndia'
-        case 'AE': return 'https://t.me/Akitarab'
-        default: return akitaTelegramLink
-    }
+export const getLocalAkitaTelegramUrl = (country: string) => {
+  switch (country) {
+    // Europe
+    case 'FR':
+      return 'https://t.me/AKITAFRENCHTEAM'
+    case 'ES':
+      return 'https://t.me/AKITAINUtokenES'
+    case 'DE':
+      return 'https://t.me/AKITAGER'
+    case 'RU':
+      return 'https://t.me/AKITAtokenRus'
+    case 'CZ':
+      return 'https://t.me/Czech_Slovak_Akita'
+    case 'NL':
+      return 'https://t.me/AKITANederland'
+    // Asia
+    case 'JP':
+      return 'https://t.me/akitanetworkjapan'
+    case 'VN':
+      return 'https://t.me/joinchat/1LaoaTMtn2s4Nzc1'
+    case 'IR':
+      return 'https://t.me/Akita_faa'
+    case 'TR':
+      return 'https://t.me/trAKITAtrr'
+    case 'CN':
+      return 'https://t.me/AKITA_Chinese'
+    case 'IN':
+      return 'https://t.me/AKITAIndia'
+    case 'AE':
+      return 'https://t.me/Akitarab'
+    default:
+      return akitaTelegramLink
+  }
 }
 
 // Polarfox
@@ -34,7 +48,7 @@ export const akitaDiscordLink = 'https://discord.gg/v85jGJUrnz'
 export const akitaMediumLink = 'https://akitanetwork.medium.com/'
 
 // Twitter
-export const akitaTwitterLink  = 'https://twitter.com/akita_network/'
+export const akitaTwitterLink = 'https://twitter.com/akita_network/'
 
 // Instagram
 export const akitaInstagramLink = 'https://instagram.com/akita_network'

@@ -26,5 +26,21 @@
   {
     "question": "When lambo?",
     "answer": "Yes"
+  },
+  {
+    "question": "Tell me more about the team!",
+    "answer": "<answer>"
+  },
+  {
+    "question": "Is AKITA / gAKITA / PFX mineable?",
+    "answer": "<answer>"
+  },
+  {
+    "question": "How to get gAKITA?",
+    "answer": "<answer>"
+  },
+  {
+    "question": "How to get PFX?",
+    "answer": "<answer>"
   }
 ]

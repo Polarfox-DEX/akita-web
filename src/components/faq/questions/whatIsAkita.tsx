@@ -15,8 +15,8 @@ const whatIsAkita = (
     <br />
     <p>
       Originally a meme token without a team nor a project, acting as Doge's and Shiba Inu's smaller brother, it now has
-      a strong community of 40,000+ holders, a dedicated team known as Polarfox Labs, and many moderators to help federate
-      the community.
+      a strong community of 40,000+ holders, a dedicated team known as Polarfox Labs, and many moderators to help
+      federate the community.
     </p>
 
     <br />
@@ -32,14 +32,16 @@ const whatIsAkita = (
         An Avalanche / Ethereum bridge, which will let you send your AKITA from Ethereum to Avalanche and vice-versa;
       </li>
       <li>
-        The Polarfox decentralized exchange, the main project of the team, on the Avalanche blockchain, involves AKITA
-        in a few ways at once:
-        <ul className="list-disc ml-9 list-decimal">
-          <li>A certain amount of AKITA tokens will be required to access the pre-sale of PFX (Polarfox) tokens;</li>
-          <li>The AKITA governance token, known as gAKITA, will be earned there;</li>
-          <li>The AKITA governance will be implemented on Polarfox.</li>
-        </ul>
+        The Polarfox decentralized exchange, the main project of the team, on the Avalanche blockchain. involves AKITA
       </li>
+    </ul>
+    <br />
+
+    <p>The Polarfox decentralized exchange involves AKITA in a few ways at once:</p>
+    <ul className="list-disc ml-1 list-inside">
+      <li>A certain amount of AKITA tokens will be required to access the pre-sale of PFX (Polarfox) tokens;</li>
+      <li>The AKITA governance token, known as gAKITA, will be earned there;</li>
+      <li>The AKITA governance will be implemented on Polarfox.</li>
     </ul>
 
     <br />

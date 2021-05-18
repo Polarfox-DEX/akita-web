@@ -7,12 +7,12 @@ import { FirstTime } from '../components/first-time/FirstTime'
 
 function Home() {
   return (
-    <div>
+    <>
       <Banner />
       <Blog className="mt-24" />
       <HowToBuy />
       <FirstTime className="mt-24" />
-    </div>
+    </>
   )
 }
 

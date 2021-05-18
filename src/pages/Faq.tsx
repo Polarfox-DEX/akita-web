@@ -4,9 +4,7 @@ import { QuestionList } from '../components/faq/QuestionList'
 
 function Faq() {
   return (
-    <div>
-      <QuestionList className="mt-24" />
-    </div>
+    <QuestionList className="mt-5" />
   )
 }
 

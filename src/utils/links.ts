@@ -5,15 +5,14 @@ export const polarfoxTelegramLink = 'https://t.me/polarfoxdex'
 // Akita Telegram Europe
 export const akitaTelegramLocal = (country: string) => {
     switch(country) {
-        case 'EN': return akitaTelegramLink
-        case 'US': return akitaTelegramLink
+        // Europe
         case 'FR': return 'https://t.me/AKITAFRENCHTEAM'
         case 'ES': return 'https://t.me/AKITAINUtokenES'
         case 'DE': return 'https://t.me/AKITAGER'
         case 'RU': return 'https://t.me/AKITAtokenRus'
         case 'CZ': return 'https://t.me/Czech_Slovak_Akita'
-        case 'SK': return 'https://t.me/Czech_Slovak_Akita'
         case 'NL': return 'https://t.me/AKITANederland'
+        // Asia
         case 'VN': return 'https://t.me/joinchat/1LaoaTMtn2s4Nzc1'
         case 'IR': return 'https://t.me/Akita_faa'
         case 'TR': return 'https://t.me/trAKITAtrr'

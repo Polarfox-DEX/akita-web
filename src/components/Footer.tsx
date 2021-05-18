@@ -108,6 +108,7 @@ export const Footer: FunctionComponent<FooterProps> = ({ className }) => (
       </div>
       <div className="flex-1">
         <h4>Akita Telegram Asia</h4>
+        <FooterLinkFlag name="Japanese" link={akitaTelegramLocal('JP')} flag="JP" />
         <FooterLinkFlag name="Vietnamese" link={akitaTelegramLocal('VN')} flag="VN" />
         <FooterLinkFlag name="Iranian" link={akitaTelegramLocal('IR')} flag="IR" />
         <FooterLinkFlag name="Turkish" link={akitaTelegramLocal('TR')} flag="TR" />

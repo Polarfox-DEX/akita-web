@@ -13,6 +13,7 @@ export const akitaTelegramLocal = (country: string) => {
         case 'CZ': return 'https://t.me/Czech_Slovak_Akita'
         case 'NL': return 'https://t.me/AKITANederland'
         // Asia
+        case 'JP': return 'https://t.me/akitanetworkjapan'
         case 'VN': return 'https://t.me/joinchat/1LaoaTMtn2s4Nzc1'
         case 'IR': return 'https://t.me/Akita_faa'
         case 'TR': return 'https://t.me/trAKITAtrr'

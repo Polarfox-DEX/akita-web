@@ -18,7 +18,7 @@ export function Footer() {
     <section className="bg-blue-200 mt-24 py-8" style={{ background: "url('images/footer/bg.jpg')" }}>
       <div className="flex space-x-4">
         <div className="flex-1">
-          <h4>Join the conversation!</h4>
+          <h4 className="mb-3">Join the conversation!</h4>
           <FooterLink name="Main Akita Telegram" link={akitaTelegramLink} />
           <FooterLink name="Polarfox Telegram" link={polarfoxTelegramLink} />
           <FooterLink name="Discord" link={akitaDiscordLink} />
@@ -26,7 +26,7 @@ export function Footer() {
           <FooterLink name="Instagram" link={akitaInstagramLink} />
         </div>
         <div className="flex-1">
-          <h4>Akita information and news</h4>
+          <h4 className="mb-3">Akita information and news</h4>
           <FooterLink name="Medium" link={akitaMediumLink} />
           <FooterLink name="GitHub" link={polarfoxGithubLink} />
           <FooterLink name="Etherscan" link={akitaEtherscanLink} />
@@ -34,7 +34,7 @@ export function Footer() {
           <FooterLink name="CoinGecko" link={akitaCoinGeckoLink} />
         </div>
         <div className="flex-1">
-          <h4>Akita Telegram Europe</h4>
+          <h4 className="mb-3">Akita Telegram Europe</h4>
           <FooterLinkFlag name="French" link={getLocalAkitaTelegramUrl('FR')} flag="FR" />
           <FooterLinkFlag name="Spanish" link={getLocalAkitaTelegramUrl('ES')} flag="ES" />
           <FooterLinkFlag name="German" link={getLocalAkitaTelegramUrl('DE')} flag="DE" />
@@ -43,7 +43,7 @@ export function Footer() {
           <FooterLinkFlag name="Dutch" link={getLocalAkitaTelegramUrl('NL')} flag="NL" />
         </div>
         <div className="flex-1">
-          <h4>Akita Telegram Asia</h4>
+          <h4 className="mb-3">Akita Telegram Asia</h4>
           <FooterLinkFlag name="Japanese" link={getLocalAkitaTelegramUrl('JP')} flag="JP" />
           <FooterLinkFlag name="Vietnamese" link={getLocalAkitaTelegramUrl('VN')} flag="VN" />
           <FooterLinkFlag name="Iranian" link={getLocalAkitaTelegramUrl('IR')} flag="IR" />
@@ -70,59 +70,53 @@ export function Footer() {
 
 function FooterLink({ name, link }: { name: string; link: string }) {
   return (
-    <p>
-      <a href={link} target="blank">
-        {name}
-      </a>
-    </p>
+    <a href={link} target="blank" className="block my-1">
+      {name}
+    </a>
   )
 }
 
 function FooterLinkFlag({ name, link, flag }: { name: string; link: string; flag: string }) {
   return (
-    <p>
-      <a href={link} target="blank" className="hover:text-gray-900">
-        <Flag
-          countryCode={flag}
-          svg
-          style={{
-            width: '1em',
-            height: '1em',
-          }}
-          title={flag}
-        />{' '}
-        {name}
-      </a>
-    </p>
+    <a href={link} target="blank" className="block my-1">
+      <Flag
+        countryCode={flag}
+        svg
+        style={{
+          width: '1em',
+          height: '1em',
+        }}
+        title={flag}
+      />{' '}
+      {name}
+    </a>
   )
 }
 
 // Two flags for those folks
 function CzechoslovakFooterLinkFlag() {
   return (
-    <p>
-      <a href={getLocalAkitaTelegramUrl('CZ')} target="blank" className="hover:text-gray-900">
-        <Flag
-          countryCode={'CZ'}
-          svg
-          style={{
-            width: '1em',
-            height: '1em',
-          }}
-          title={'CZ'}
-        />{' '}
-        Czech &{' '}
-        <Flag
-          countryCode={'SK'}
-          svg
-          style={{
-            width: '1em',
-            height: '1em',
-          }}
-          title={'SK'}
-        />{' '}
-        Slovak
-      </a>
-    </p>
+    <a href={getLocalAkitaTelegramUrl('CZ')} target="blank" className="block my-1">
+      <Flag
+        countryCode={'CZ'}
+        svg
+        style={{
+          width: '1em',
+          height: '1em',
+        }}
+        title={'CZ'}
+      />{' '}
+      Czech &{' '}
+      <Flag
+        countryCode={'SK'}
+        svg
+        style={{
+          width: '1em',
+          height: '1em',
+        }}
+        title={'SK'}
+      />{' '}
+      Slovak
+    </a>
   )
 }

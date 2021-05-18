@@ -10,7 +10,7 @@ export const Banner: FunctionComponent = () => (
       <div className="lg:w-5/5 flex flex-wrap items-center">
         <div className="lg:w-1/2 w-full lg:h-auto">
           <h1>AKITA NETWORK 秋田犬</h1>
-          <h2 className="pt-7">social media meets DeFi</h2>
+          <h2 className="pt-7">Social media meets DeFi</h2>
           <p className="pt-9">
             AKITA INU started as a meme. Now we'll bridge to AVAX for project
             governance - empowering our community.

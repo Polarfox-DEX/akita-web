@@ -171,6 +171,9 @@ const Header: FunctionComponent = () => {
           <div className="mr-5 uppercase hover:text-gray-900">
             <a href="#how-to-buy">How To Buy</a>
           </div>
+          <Link className="mr-5 uppercase hover:text-gray-900" to="/community">
+            Community
+          </Link>
           <Link className="mr-5 uppercase hover:text-gray-900" to="/faq">
             FAQ
           </Link>

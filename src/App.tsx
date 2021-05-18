@@ -4,7 +4,6 @@ import './App.css'
 import { Footer } from './components/Footer'
 import Header from './components/Header'
 import Home from './pages/Home'
-import Community from './pages/Community'
 import Faq from './pages/Faq'
 
 function App() {
@@ -14,7 +13,6 @@ function App() {
         <Header />
         <Switch>
           <Route path="/" exact component={() => <Home />} />
-          <Route path="/community" exact component={() => <Community />} />
           <Route path="/faq" exact component={() => <Faq />} />
         </Switch>
       </Router>

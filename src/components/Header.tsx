@@ -162,9 +162,15 @@ const Header: FunctionComponent = () => {
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <img src="images/logo.png" alt="logo" />
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <Link className="mr-5 uppercase hover:text-gray-900" to="/">Home</Link>
-          <div className="mr-5 uppercase hover:text-gray-900">News</div>
-          <div className="mr-5 uppercase hover:text-gray-900">How To Buy</div>
+          <Link className="mr-5 uppercase hover:text-gray-900" to="/">
+            Home
+          </Link>
+          <div className="mr-5 uppercase hover:text-gray-900">
+            <a href="#news">News</a>
+          </div>
+          <div className="mr-5 uppercase hover:text-gray-900">
+            <a href="#how-to-buy">How To Buy</a>
+          </div>
           <Link className="mr-5 uppercase hover:text-gray-900" to="/faq">
             FAQ
           </Link>

@@ -8,7 +8,7 @@ export interface BlogProps {
 }
 
 export const Blog: FunctionComponent<BlogProps> = ({ className }) => (
-  <section className={classnames('container px-5 mx-auto', className)}>
+  <section id="news" className={classnames('container px-5 mx-auto', className)}>
     <h1 className="mb-4">Latest News</h1>
     <p>AKITA INU 秋田犬 最新情報.</p>
     <div className="flex flex-wrap pt-12">

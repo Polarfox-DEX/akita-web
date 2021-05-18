@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLink, faCoins } from '@fortawesome/free-solid-svg-icons';
 
 export const HowToBuy: FunctionComponent = () => (
-  <section className="overflow-hidden text-left">
+  <section id="how-to-buy" className="overflow-hidden text-left">
     <div className="container px-5 pt-12 mx-auto">
       <div className="lg:w-5/5 flex flex-wrap px-4">
         <div className="lg:w-1/2 flex justify-center items-center">

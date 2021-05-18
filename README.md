@@ -7,3 +7,6 @@ This repository contains the source code for the Akita Website, which you can fi
 To add questions to the FAQ, join the Polarfox Telegram at [t.me/polarfoxdex](https://t.me/polarfoxdex) and ask there!
 
 Any suggestions are always welcome.
+
+
+__Built by Polarfox Labs

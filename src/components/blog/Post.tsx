@@ -15,7 +15,7 @@ export const Post: FunctionComponent<PostProps> = ({
 }) => (
   <div className="p-4 md:w-1/3">
     <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-md overflow-hidden">
-      <a href={link}>
+      <a href={link} target="blank">
         <img
           className="lg:h-72 w-full object-cover object-center"
           src={imgUrl}

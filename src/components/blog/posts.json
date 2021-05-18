@@ -1,37 +1,37 @@
 [
   {
     "title": "Decentralized Exchange on Avalanche",
-    "description": "For AKITA holders only",
+    "description": "Release expected in June - pre-sale only for AKITA holders.",
     "imgUrl": "images/blog/b8.jpg",
     "link": "https://www.polarfox.io"
   },
   {
-    "title": "We're now listed on Hotbit",
-    "description": "Trade now",
-    "imgUrl": "images/blog/b5.jpg",
-    "link": "https://www.hotbit.io/exchange?symbol=AKITA_USDT"
+    "title": "Announcing gAKITA",
+    "description": "AKITA governance will be available on Polarfox.",
+    "imgUrl": "images/blog/b10.png",
+    "link": "https://www.polarfox.io"
   },
   {
-    "title": "We're now listed on Poloniex",
-    "description": "Trade now",
-    "imgUrl": "images/blog/b6.jpg",
-    "link": "https://poloniex.com/exchange/USDT_AKITA"
+    "title": "Announcing Dreamswap",
+    "description": "Stake your dog tokens on Ethereum to earn $DREAM! Available soon.",
+    "imgUrl": "images/blog/b9.gif",
+    "link": "https://akitanetwork.medium.com/akita-network-project-outlook-1-27be3377788a"
   },
   {
-    "title": "Find us on Coingecko and Coinmarketcap",
+    "title": "We're now listed on OKEX!",
+    "description": "Trade now!",
+    "imgUrl": "images/blog/b11.png",
+    "link": "https://www.okex.com/markets/prices/akita"
+  },
+  {
+    "title": "Find us on Coingecko and Coinmarketcap!",
     "imgUrl": "images/blog/b7.jpg",
     "link": "https://coinmarketcap.com/currencies/akita-inu/"
   },
   {
-    "title": "AKITA INU 秋田犬 community will be able to bridge to Avalanche",
+    "title": "Ethereum ⇄ Avalanche",
     "imgUrl": "images/blog/b1.jpg",
     "link": "https://www.avax.network",
-    "description": "Community Count: +5000"
-  },
-  {
-    "title": "50% of the supply was sent to Vitalik Buterin's wallet",
-    "imgUrl": "images/blog/b4.jpg",
-    "link": "https://etherscan.io/address/0xab5801a7d398351b8be11c439e05c5b3259aec9b",
-    "description": "In Vitalik we trust."
+    "description": "The AKITA INU 秋田犬 community will be able to bridge to Avalanche."
   }
 ]

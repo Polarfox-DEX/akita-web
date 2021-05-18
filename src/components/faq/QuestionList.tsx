@@ -1,5 +1,4 @@
 import { FunctionComponent } from 'react'
-import classnames from 'classnames'
 import { Question } from './Question'
 import whatIsAkita from './questions/whatIsAkita'
 import whatIsAkitaNetwork from './questions/whatIsAkitaNetwork'
@@ -22,12 +21,8 @@ import whatHappensToAkitaAfterPolarfox from './questions/whatHappensToAkitaAfter
 import akitaMarketCap from './questions/akitaMarketCap'
 import joinAkitaNetwork from './questions/joinAkitaNetwork'
 
-export interface QuestionListProps {
-  className?: string
-}
-
-export const QuestionList: FunctionComponent<QuestionListProps> = ({ className }) => (
-  <section className={classnames('container px-5 mx-auto', className)}>
+export const QuestionList: FunctionComponent = () => (
+  <section className="container px-5 mx-auto mt-24">
     <h1 className="mb-4">Frequently Asked Questions</h1>
     <p>
       Cannot find what you are looking for? Come ask on our{' '}
@@ -56,7 +51,10 @@ export const QuestionList: FunctionComponent<QuestionListProps> = ({ className }
     <Question question="Are AKITA, gAKITA and PFX mineable?" answer={areTokensMineable}></Question>
     <Question question="How to get gAKITA?" answer={howToGetGAkita}></Question>
     <Question question="How to get PFX?" answer={howToGetPfx}></Question>
-    <Question question="What happens to AKITA after the Polarfox launch?" answer={whatHappensToAkitaAfterPolarfox}></Question>
+    <Question
+      question="What happens to AKITA after the Polarfox launch?"
+      answer={whatHappensToAkitaAfterPolarfox}
+    ></Question>
     <Question question="What is the AKITA market cap?" answer={akitaMarketCap}></Question>
     <Question question="As a fan, where may I join the AKITA Network? " answer={joinAkitaNetwork}></Question>
   </section>

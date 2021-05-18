@@ -1,18 +1,11 @@
-import { FunctionComponent } from 'react';
-import classnames from 'classnames';
+import { FunctionComponent } from 'react'
 
-import './FirstTime.scss';
+import './FirstTime.scss'
 
-export interface FirstTimeProps {
-  className?: string;
-}
-
-export const FirstTime: FunctionComponent<FirstTimeProps> = ({ className }) => (
-  <section className={classnames('container px-5 mx-auto', className)}>
-    <h1 className="mb-4">First time?</h1>
-    <p>
-      This is a step by step instruction on how to buy AKITA INU with Metamask.
-    </p>
+export const FirstTime: FunctionComponent = () => (
+  <section className="container px-5 mx-auto mt-24">
+    <h1 className="my-4">First time?</h1>
+    <p>This is a step by step instruction on how to buy AKITA INU with Metamask.</p>
     <div className="flex flex-wrap pt-12">
       <div className="p-4 md:w-1/3">
         <div className="first-time-block py-7 px-8 h-full border-2 border-gray-200 border-opacity-60 rounded-sm overflow-hidden flex flex-col">
@@ -26,13 +19,9 @@ export const FirstTime: FunctionComponent<FirstTimeProps> = ({ className }) => (
               <a href="https://metamask.io/download.html" target="blank">
                 Metamask
               </a>{' '}
-              and load the app. Follow the in-app-tutorial, log in and get
-              started.
+              and load the app. Follow the in-app-tutorial, log in and get started.
             </p>
-            <p>
-              Don't forget to write down your private pass-phrase (don't lose
-              it!).
-            </p>
+            <p>Don't forget to write down your private pass-phrase (don't lose it!).</p>
           </div>
         </div>
       </div>
@@ -67,10 +56,7 @@ export const FirstTime: FunctionComponent<FirstTimeProps> = ({ className }) => (
           <div className="flex flex-grow justify-center items-center">
             <p className="leading-relaxed">
               Find the official AKITA contract address{' '}
-              <a
-                href="https://etherscan.io/token/0x3301ee63fb29f863f2333bd4466acb46cd8323e6"
-                target="blank"
-              >
+              <a href="https://etherscan.io/token/0x3301ee63fb29f863f2333bd4466acb46cd8323e6" target="blank">
                 here
               </a>{' '}
               (copy contract on top right corner) and connect your wallet to{' '}
@@ -90,13 +76,11 @@ export const FirstTime: FunctionComponent<FirstTimeProps> = ({ className }) => (
           <h3 className="mb-6">5 - Swap</h3>
           <div className="flex flex-col flex-grow justify-center items-center">
             <p className="mb-3">
-              Select From: <strong>ETH</strong>; To: Paste in official AKITA
-              contract adress and click import.
+              Select From: <strong>ETH</strong>; To: Paste in official AKITA contract adress and click import.
             </p>
             <p>
-              Put in the ETH-amount you wish to swap. Make sure you got enough
-              ETH for the transaction fee (edit the fee to make sure transaction
-              runs smoothly).
+              Put in the ETH-amount you wish to swap. Make sure you got enough ETH for the transaction fee (edit the fee
+              to make sure transaction runs smoothly).
             </p>
           </div>
         </div>
@@ -110,10 +94,7 @@ export const FirstTime: FunctionComponent<FirstTimeProps> = ({ className }) => (
           <div className="flex flex-col flex-grow justify-center items-center">
             <p>
               If you wish, add liquidity to the{' '}
-              <a
-                href="https://info.uniswap.org/#/tokens/0x3301ee63fb29f863f2333bd4466acb46cd8323e6"
-                target="blank"
-              >
+              <a href="https://info.uniswap.org/#/tokens/0x3301ee63fb29f863f2333bd4466acb46cd8323e6" target="blank">
                 ETH-AKITA
               </a>{' '}
               pair on Uniswap.
@@ -123,4 +104,4 @@ export const FirstTime: FunctionComponent<FirstTimeProps> = ({ className }) => (
       </div>
     </div>
   </section>
-);
+)

@@ -1,5 +1,4 @@
 import { FunctionComponent } from 'react'
-import classnames from 'classnames'
 import {
   akitaTelegramLink,
   polarfoxTelegramLink,
@@ -14,10 +13,6 @@ import {
   akitaTelegramLocal,
 } from '../utils/links'
 import Flag from 'react-country-flag'
-
-export interface FooterProps {
-  className?: string
-}
 
 const FooterLink = ({ name, link }: { name: string; link: string }) => {
   return (
@@ -62,8 +57,8 @@ const CzechoslovakFooterLinkFlag = () => {
           }}
           title={'CZ'}
         />{' '}
-        Czech &
-        {' '}<Flag
+        Czech &{' '}
+        <Flag
           countryCode={'SK'}
           svg
           style={{
@@ -78,8 +73,8 @@ const CzechoslovakFooterLinkFlag = () => {
   )
 }
 
-export const Footer: FunctionComponent<FooterProps> = ({ className }) => (
-  <section className={classnames('bg-blue-200 py-8', className)} style={{ background: "url('images/footer/bg.jpg')" }}>
+export const Footer: FunctionComponent = () => (
+  <section className="bg-blue-200 mt-24 py-8" style={{ background: "url('images/footer/bg.jpg')" }}>
     <div className="flex space-x-4">
       <div className="flex-1">
         <h4>Join the conversation!</h4>

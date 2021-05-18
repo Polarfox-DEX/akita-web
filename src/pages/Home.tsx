@@ -1,4 +1,3 @@
-import React from 'react'
 import '../App.css'
 import { Blog } from '../components/blog/Blog'
 import { HowToBuy } from '../components/HowToBuy'
@@ -9,9 +8,9 @@ function Home() {
   return (
     <>
       <Banner />
-      <Blog className="mt-24" />
+      <Blog />
       <HowToBuy />
-      <FirstTime className="mt-24" />
+      <FirstTime />
     </>
   )
 }

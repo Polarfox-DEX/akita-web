@@ -1,6 +1,6 @@
 # Akita Web
 
-This repository contains the source code for the Akita Website, which you can find at [akita.network]{https://akita.network}.
+This repository contains the source code for the Akita Website, which you can find at [akita.network](https://akita.network).
 
 # Adding questions to the FAQ
 

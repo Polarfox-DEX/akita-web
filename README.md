@@ -8,5 +8,4 @@ To add questions to the FAQ, join the Polarfox Telegram at [t.me/polarfoxdex](ht
 
 Any suggestions are always welcome.
 
-
-__Built by Polarfox Labs
+_Built by Polarfox Labs_

@@ -1,5 +1,3 @@
-import { FunctionComponent } from 'react'
-
 import './FirstTime.scss'
 
 export function FirstTime() {

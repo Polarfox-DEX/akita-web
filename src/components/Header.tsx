@@ -36,7 +36,7 @@ async function getChainId(): Promise<number | null> {
   const chainId_ = await window_.ethereum.request({ method: 'eth_chainId' })
 
   if (chainId_) {
-    // Hew to base 10
+    // Hex to base 10
     return parseInt(chainId_)
   }
 

@@ -1,23 +1,24 @@
-import React from 'react';
-import './App.css';
-import { Footer } from './components/Footer';
-import { Blog } from './components/blog/Blog';
-import { HowToBuy } from './components/HowToBuy';
-import { Header } from './components/Header';
-import { Banner } from './components/banner/Banner';
-import { FirstTime } from './components/first-time/FirstTime';
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import './App.css'
+import { Footer } from './components/Footer'
+import Header from './components/Header'
+import Home from './pages/Home'
+import Faq from './pages/Faq'
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Banner />
-      <Blog className="mt-24" />
-      <HowToBuy />
-      <FirstTime className="mt-24" />
-      <Footer className="mt-24" />
+      <Router>
+        <Header />
+        <Switch>
+          <Route path="/" exact component={() => <Home />} />
+          <Route path="/faq" exact component={() => <Faq />} />
+        </Switch>
+      </Router>
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

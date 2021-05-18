@@ -3,6 +3,7 @@ import { akita } from '../ethereum/akita'
 import { useInterval } from '../hooks/useInterval'
 import { ChainId, CHAIN_NAME } from '../ethereum/const'
 import { toCompactBalance, toCompactValue } from '../ethereum/formatter'
+import { Link, withRouter } from 'react-router-dom'
 const CoinGecko = require('coingecko-api')
 
 let window_: any = window
@@ -42,7 +43,7 @@ async function getChainId(): Promise<number | null> {
   return null
 }
 
-export const Header: FunctionComponent = () => {
+const Header: FunctionComponent = () => {
   const [accounts, setAccounts] = useState<string[]>([])
   const [chainId, setChainId] = useState<ChainId | null>(null)
   const [akitaBalance, setAkitaBalance] = useState<number | null>(null)
@@ -161,9 +162,12 @@ export const Header: FunctionComponent = () => {
       <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
         <img src="images/logo.png" alt="logo" />
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <a className="mr-5 uppercase hover:text-gray-900">Home</a>
-          <a className="mr-5 uppercase hover:text-gray-900">News</a>
-          <a className="mr-5 uppercase hover:text-gray-900">How To Buy</a>
+          <Link className="mr-5 uppercase hover:text-gray-900" to="/">Home</Link>
+          <div className="mr-5 uppercase hover:text-gray-900">News</div>
+          <div className="mr-5 uppercase hover:text-gray-900">How To Buy</div>
+          <Link className="mr-5 uppercase hover:text-gray-900" to="/faq">
+            FAQ
+          </Link>
         </nav>
         {loggedIn && chainId ? (
           <WalletInfo address={accounts[0]} network={CHAIN_NAME[chainId]} />
@@ -196,3 +200,5 @@ function WalletInfo({ address, network }: { address: string; network: string }) 
     </div>
   )
 }
+
+export default withRouter(Header)

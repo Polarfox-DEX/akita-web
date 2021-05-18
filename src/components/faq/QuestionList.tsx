@@ -47,7 +47,7 @@ export const QuestionList: FunctionComponent<QuestionListProps> = ({ className }
     <Question question="What is PFX?" answer={whatIsPfx}></Question>
     <Question question="Why Avalanche?" answer={whyAvalanche}></Question>
     <Question question="How does Polarfox work?" answer={howDoesPolarfoxWork}></Question>
-    <Question question="What is Dreamswap?" answer={whatIsDreamSwap}></Question>
+    <Question question="What is DreamSwap?" answer={whatIsDreamSwap}></Question>
     <Question question="What is Dream?" answer={whatIsDream}></Question>
     <Question question="Can I buy AKITA on the Binance Smart Chain?" answer={canIBuyAkitaBsc}></Question>
     <Question question="When lambo?" answer={whenLambo}></Question>

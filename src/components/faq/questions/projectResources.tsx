@@ -1,8 +1,12 @@
 const projectResources = (
   <>
-    The Polarfox / Akita team has been working on the Polarfox DEX, the bridge, the websites, DreamSwap and so on since
-    February, without any funding. Most of the team members still work part-time and on weekends. We expect to make our
-    own funding in two ways:
+    <p>
+      The Polarfox / Akita team has been working on the Polarfox DEX, the bridge, the websites, DreamSwap and so on
+      since February, without any funding.{' '}
+    </p>{' '}
+    <p>Most of the team members still work part-time and on weekends.</p>
+    <br />
+    <p>We expect to make our own funding in two ways:</p>
     <ul className="list-disc ml-1 list-decimal list-inside">
       <li>By keeping a small percentage of the PFX token supply when starting the project;</li>
       <li>

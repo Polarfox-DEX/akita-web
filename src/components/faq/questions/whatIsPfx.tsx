@@ -10,7 +10,7 @@ const whatIsPfx = (
     <p>On every transaction:</p>
 
     <ul className="list-disc ml-1 list-inside">
-      <li>0.27% is burned;</li>
+      <li>0.27% is burned (sent to 0x0);</li>
       <li>0.03% is sent to a dev wallet to fund future development.</li>
     </ul>
   </>

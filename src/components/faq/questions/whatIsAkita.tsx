@@ -15,7 +15,7 @@ const whatIsAkita = (
     <br />
     <p>
       Originally a meme token without a team nor a project, acting as Doge's and Shiba Inu's smaller brother, it now has
-      a strong community of 40,000+ holders, a dedicated team known as Polarfox, and many moderators to help federate
+      a strong community of 40,000+ holders, a dedicated team known as Polarfox Labs, and many moderators to help federate
       the community.
     </p>
 

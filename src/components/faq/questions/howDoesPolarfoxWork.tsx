@@ -8,7 +8,7 @@ const howDoesPolarfoxWork = (
     <p>
       Feel free to check out the details of the protocol{' '}
       <a
-        href="https://uniswPap.org/docs/v2/protocol-overview/how-uniswap-works/"
+        href="https://uniswap.org/docs/v2/protocol-overview/how-uniswap-works/"
         target="blank"
         className="hover:text-gray-900"
       >

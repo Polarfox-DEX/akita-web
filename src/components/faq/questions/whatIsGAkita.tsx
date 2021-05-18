@@ -3,7 +3,7 @@ const whatIsGAkita = (
     <p>gAKITA will be the governance token of the AKITA Network.</p>
     <br />
     <p>
-      gAKITA will incentivize leadership from within the community, wrlehich will leverage the power of the network in
+      gAKITA will incentivize leadership from within the community, which will leverage the power of the network in
       all fundraising, development, and trajectory.
     </p>
     <p>

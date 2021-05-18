@@ -22,7 +22,7 @@ export interface FooterProps {
 const FooterLink = ({ name, link }: { name: string; link: string }) => {
   return (
     <p>
-      <a href={link} target="blank">
+      <a href={link} target="blank" className="hover:text-gray-900">
         {name}
       </a>
     </p>
@@ -32,7 +32,7 @@ const FooterLink = ({ name, link }: { name: string; link: string }) => {
 const FooterLinkFlag = ({ name, link, flag }: { name: string; link: string; flag: string }) => {
   return (
     <p>
-      <a href={link} target="blank">
+      <a href={link} target="blank" className="hover:text-gray-900">
         <Flag
           countryCode={flag}
           svg
@@ -52,7 +52,7 @@ const FooterLinkFlag = ({ name, link, flag }: { name: string; link: string; flag
 const CzechoslovakFooterLinkFlag = () => {
   return (
     <p>
-      <a href={akitaTelegramLocal('CZ')} target="blank">
+      <a href={akitaTelegramLocal('CZ')} target="blank" className="hover:text-gray-900">
         <Flag
           countryCode={'CZ'}
           svg
@@ -120,7 +120,7 @@ export const Footer: FunctionComponent<FooterProps> = ({ className }) => (
     <div className="pt-7">
       <p>
         Built by{' '}
-        <a href="https://www.polarfox.io/" target="blank">
+        <a href="https://www.polarfox.io/" target="blank" className="hover:text-gray-900">
           Polarfox Labs
         </a>
       </p>

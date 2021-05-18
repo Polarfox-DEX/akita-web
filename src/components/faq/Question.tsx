@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react'
 
 export interface QuestionProps {
   question: string
-  answer: string
+  answer: JSX.Element
 }
 
 export const Question: FunctionComponent<QuestionProps> = ({ question, answer }) => (

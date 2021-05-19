@@ -50,7 +50,7 @@ export function Header() {
           </Link>
         </nav>
         {connected && chainId ? (
-          <WalletInfo address={accounts[0]} network={CHAIN_NAME[chainId]} />
+          <WalletInfo address={accounts[0]} network={CHAIN_NAME[chainId] ? CHAIN_NAME[chainId] : 'Wrong Network'} />
         ) : (
           <ConnectButton hasWallet={hasWallet} onClick={requestConnection} />
         )}

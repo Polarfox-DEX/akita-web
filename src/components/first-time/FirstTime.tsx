@@ -15,7 +15,7 @@ export function FirstTime() {
             <div className="flex flex-col flex-grow justify-center items-center">
               <p className="mb-3">
                 Go to{' '}
-                <a href="https://metamask.io/download.html" target="blank">
+                <a href="https://metamask.io/download.html" target="blank" className="hover:text-gray-900">
                   Metamask
                 </a>{' '}
                 and load the app. Follow the in-app-tutorial, log in and get started.
@@ -55,11 +55,11 @@ export function FirstTime() {
             <div className="flex flex-grow justify-center items-center">
               <p className="leading-relaxed">
                 Find the official AKITA contract address{' '}
-                <a href="https://etherscan.io/token/0x3301ee63fb29f863f2333bd4466acb46cd8323e6" target="blank">
+                <a href="https://etherscan.io/token/0x3301ee63fb29f863f2333bd4466acb46cd8323e6" target="blank" className="hover:text-gray-900">
                   here
                 </a>{' '}
                 (copy contract on top right corner) and connect your wallet to{' '}
-                <a href="https://app.uniswap.org/#/swap" target="blank">
+                <a href="https://app.uniswap.org/#/swap" target="blank" className="hover:text-gray-900">
                   Uniswap
                 </a>
                 .
@@ -93,7 +93,7 @@ export function FirstTime() {
             <div className="flex flex-col flex-grow justify-center items-center">
               <p>
                 If you wish, add liquidity to the{' '}
-                <a href="https://info.uniswap.org/#/tokens/0x3301ee63fb29f863f2333bd4466acb46cd8323e6" target="blank">
+                <a href="https://info.uniswap.org/#/tokens/0x3301ee63fb29f863f2333bd4466acb46cd8323e6" target="blank" className="hover:text-gray-900">
                   ETH-AKITA
                 </a>{' '}
                 pair on Uniswap.

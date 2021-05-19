@@ -13,7 +13,7 @@ export function HowToBuy() {
           <h1 className="mb-5">How to buy on Uniswap</h1>
           <div className="mb-7">
             Make sure you paste in the correct{' '}
-            <a href="https://etherscan.io/token/0x3301ee63fb29f863f2333bd4466acb46cd8323e6" target="blank">
+            <a href="https://etherscan.io/token/0x3301ee63fb29f863f2333bd4466acb46cd8323e6" target="blank" className="hover:text-gray-900">
               address
             </a>
             .
@@ -41,7 +41,7 @@ export function HowToBuy() {
               <p>
                 Would you like to add liquidity to Uniswap Pool? <br />
                 Check the pair{' '}
-                <a href="https://www.polarfox.io" target="blank">
+                <a href="https://www.polarfox.io" target="blank" className="hover:text-gray-900">
                   here
                 </a>
                 .

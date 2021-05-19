@@ -70,7 +70,7 @@ export function Footer() {
 
 function FooterLink({ name, link }: { name: string; link: string }) {
   return (
-    <a href={link} target="blank" className="block my-1">
+    <a href={link} target="blank" className="block my-1 hover:text-gray-900">
       {name}
     </a>
   )
@@ -78,7 +78,7 @@ function FooterLink({ name, link }: { name: string; link: string }) {
 
 function FooterLinkFlag({ name, link, flag }: { name: string; link: string; flag: string }) {
   return (
-    <a href={link} target="blank" className="block my-1">
+    <a href={link} target="blank" className="block my-1 hover:text-gray-900">
       <Flag
         countryCode={flag}
         svg
@@ -96,7 +96,7 @@ function FooterLinkFlag({ name, link, flag }: { name: string; link: string; flag
 // Two flags for those folks
 function CzechoslovakFooterLinkFlag() {
   return (
-    <a href={getLocalAkitaTelegramUrl('CZ')} target="blank" className="block my-1">
+    <a href={getLocalAkitaTelegramUrl('CZ')} target="blank" className="block my-1 hover:text-gray-900">
       <Flag
         countryCode={'CZ'}
         svg

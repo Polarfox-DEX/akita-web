@@ -53,7 +53,7 @@ export function Footer() {
           <FooterLinkFlag name="Arabic" link={getLocalAkitaTelegramUrl('AE')} flag="AE" />
         </div>
       </div>
-      <div className="pt-7">
+      <div className="pt-7 italic">
         <p>
           Built by{' '}
           <a href="https://www.polarfox.io/" target="blank" className="hover:text-gray-900">

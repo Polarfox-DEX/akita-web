@@ -43,7 +43,7 @@ export function QuestionList() {
       <Question question="Why Avalanche?" answer={whyAvalanche}></Question>
       <Question question="How does Polarfox work?" answer={howDoesPolarfoxWork}></Question>
       <Question question="What is DreamSwap?" answer={whatIsDreamSwap}></Question>
-      <Question question="What is Dream?" answer={whatIsDream}></Question>
+      <Question question="What is DREAM?" answer={whatIsDream}></Question>
       <Question question="Can I buy AKITA on the Binance Smart Chain?" answer={canIBuyAkitaBsc}></Question>
       <Question question="When lambo?" answer={whenLambo}></Question>
       <Question question="Tell me more about the AKITA team!" answer={tellMeMoreAkitaTeam}></Question>

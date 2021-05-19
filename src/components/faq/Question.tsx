@@ -8,7 +8,7 @@ export function Question({ question, answer }: QuestionProps) {
     <div className="p-6">
       <div className="grid grid-cols-1 divide-y gap-y-5 text-justify">
         <h2 className="text-yellow-500">{question}</h2>
-        <p className="pt-5">{answer}</p>
+        <div className="pt-5">{answer}</div>
       </div>
     </div>
   )

@@ -28,7 +28,6 @@ const whatIsDreamSwap = (
       <li>AKITA – FEG</li>
       <li>AKITA – HOKK</li>
       <li>AKITA – HUSKY</li>
-      <li>AKITA – PEPE</li>
       <li>AKITA - DREAM</li>
       <li>AKITA – WETH</li>
       <li>DREAM - WETH</li>

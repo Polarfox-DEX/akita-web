@@ -17,6 +17,7 @@ import areTokensMineable from './questions/areTokensMineable'
 import howToGetGAkita from './questions/howToGetGAkita'
 import howToGetPfx from './questions/howToGetPfx'
 import whatHappensToAkitaAfterPolarfox from './questions/whatHappensToAkitaAfterPolarfox'
+import akitaTotalSupply from './questions/akitaTotalSupply'
 import akitaMarketCap from './questions/akitaMarketCap'
 import joinAkitaNetwork from './questions/joinAkitaNetwork'
 
@@ -55,6 +56,7 @@ export function QuestionList() {
         question="What happens to AKITA after the Polarfox launch?"
         answer={whatHappensToAkitaAfterPolarfox}
       ></Question>
+      <Question question="What is the AKITA total supply?" answer={akitaTotalSupply}></Question>
       <Question question="What is the AKITA market cap?" answer={akitaMarketCap}></Question>
       <Question question="As a fan, where may I join the AKITA Network? " answer={joinAkitaNetwork}></Question>
     </section>

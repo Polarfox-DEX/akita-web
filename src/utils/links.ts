@@ -26,7 +26,7 @@ export const getLocalAkitaTelegramUrl = (country: string) => {
     case 'IR':
       return 'https://t.me/Akita_faa'
     case 'TR':
-      return 'https://t.me/trAKITAtrr'
+      return 'https://t.me/AkitaInuTR'
     case 'CN':
       return 'https://t.me/AKITA_Chinese'
     case 'IN':

@@ -33,7 +33,7 @@ const tellMeMoreAkitaTeam = (
       <li>CryptoNurse (Geena Scalzo) - Management</li>
       <li>Bernie (John Hua) - Marketing / Management</li>
       <li>Austin Dash - Marketing</li>
-      <li>Tony Tran - FinTech Dev</li>
+      <li>Tony Try - FinTech Dev</li>
       <li>Ryan MacGavin - Community</li>
     </ul>
 
